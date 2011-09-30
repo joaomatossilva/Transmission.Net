@@ -23,7 +23,7 @@ namespace TransmissionNet.Dev {
 			//var returnObj = rpc.AddTorrent(new Uri("http://redirect.karmorra.info/6d7f809d36a2cfacdcd4b450c6239212.torrent"));
 
 
-			rpc.RemoveTorrent(2);
+			//rpc.RemoveTorrent(2);
 
 			var returnObj2 = rpc.CheckStatus();
 

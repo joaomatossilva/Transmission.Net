@@ -16,5 +16,15 @@ namespace TransmissionNet {
 		public string name;
 		public bool isFinished;
 		public bool isStalled;
+
+		public double percentDone;
+		public TorrentFiles[] files;
+		public string torrentfile;
+	}
+
+	public class TorrentFiles {
+		public string name;
+		public int bytesCompleted;
+		public int lenght;
 	}
 }
