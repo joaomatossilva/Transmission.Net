@@ -59,6 +59,16 @@ namespace TransmissionNet {
 			var response = Invoke<TransmissionArguments>(request);
 		}
 
+		public void StopTorrent(int id) {
+			var request = new { method = "torrent-stop", arguments = new { ids = new int[] { id } } };
+			var response = Invoke<TransmissionArguments>(request);
+		}
+
+		public void StartTorrent(int id) {
+			var request = new { method = "torrent-start", arguments = new { ids = new int[] { id } } };
+			var response = Invoke<TransmissionArguments>(request);
+		}
+
 		private T Invoke<T>(object requestObject) where T: TransmissionArguments {
 			string request = JsonConvert.SerializeObject(requestObject);
 			WebClient client = new WebClient();

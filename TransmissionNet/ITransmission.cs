@@ -8,5 +8,7 @@ namespace TransmissionNet {
 		TorrentAdded AddTorrent(Uri url);
 		IList<TorrentStatus> CheckStatus();
 		void RemoveTorrent(int id);
+		void StopTorrent(int id);
+		void StartTorrent(int id);
 	}
 }
