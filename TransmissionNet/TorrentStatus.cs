@@ -20,11 +20,20 @@ namespace TransmissionNet {
 		public double percentDone;
 		public TorrentFiles[] files;
 		public string torrentfile;
+		public Trackers[] trackers;
+		public string hashString;
 	}
 
 	public class TorrentFiles {
 		public string name;
 		public int bytesCompleted;
 		public int lenght;
+	}
+
+	public class Trackers {
+		public string announce;
+		public int id;
+		public string scrape;
+		public int tier;
 	}
 }

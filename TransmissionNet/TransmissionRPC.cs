@@ -49,7 +49,7 @@ namespace TransmissionNet {
 		}
 
 		public IList<TorrentStatus> CheckStatus() {
-			var request = new { method = "torrent-get", arguments = new { fields = new string[] { "id", "name", "status", "downloadDir", "isFinished", "isStalled", "files", "percentDone", "torrentFile" } } };
+			var request = new { method = "torrent-get", arguments = new { fields = new string[] { "id", "name", "status", "downloadDir", "isFinished", "isStalled", "files", "percentDone", "torrentFile", "trackers", "hashString" } } };
 			var response = Invoke<TorrentStatusArgument>(request);
 			return response.torrents;
 		}
@@ -67,6 +67,16 @@ namespace TransmissionNet {
 		public void StartTorrent(int id) {
 			var request = new { method = "torrent-start", arguments = new { ids = new int[] { id } } };
 			var response = Invoke<TransmissionArguments>(request);
+		}
+
+		public void AddTracker(int id, string tracker) {
+			var request = new {method = "torrent-set", arguments = new {ids = new int[] {id}, trackerAdd = new string[] { tracker } }};
+			Invoke<TransmissionArguments>(request);
+		}
+
+		public void RemoveTracker(int id, int trackerId) {
+			var request = new { method = "torrent-set", arguments = new { ids = new int[] { id }, trackerRemove = new int[] { trackerId } } };
+			Invoke<TransmissionArguments>(request);
 		}
 
 		private T Invoke<T>(object requestObject) where T: TransmissionArguments {

@@ -10,5 +10,7 @@ namespace TransmissionNet {
 		void RemoveTorrent(int id);
 		void StopTorrent(int id);
 		void StartTorrent(int id);
+		void AddTracker(int id, string tracker);
+		void RemoveTracker(int id, int trackerId);
 	}
 }
