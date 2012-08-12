@@ -27,7 +27,7 @@ namespace TransmissionNet {
 	public class TorrentFiles {
 		public string name;
 		public long bytesCompleted;
-		public long lenght;
+		public long length;
 	}
 
 	public class Trackers {
